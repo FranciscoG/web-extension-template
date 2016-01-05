@@ -2,8 +2,7 @@
   "manifest_version": 2,
 
   "name": "My Web Extension",
-  "default_locale": "en",
-  
+
   "icons": { 
     "16": "icon16.png",
     "48": "icon48.png",
@@ -13,15 +12,23 @@
   "description": "Simple extension that runs a content script on a specific domain",
   "version": "1.0",
 
+  "browser_action": {
+    "default_icon": "icon16.png"
+   },
+
   "content_scripts": [
       {
         "matches": ["https://www.google.com/*"],
-        "js": ["script.js"]
+        "js": ["content.js"],
+        "run_at": "document_end"
       }
   ],
   
   "permissions": [
-    "activeTab",
+    "tabs",
+    "http://www.google.com/",
     "https://www.google.com/"
-  ]
+  ],
+
+  "web_accessible_resources": ["script.js"]
 }

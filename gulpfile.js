@@ -18,6 +18,18 @@ gulp.task('images', function() {
    .pipe(gulp.dest('Firefox/'));
 });
 
+gulp.task('scripts', function(){
+  gulp.src('common/**/*.js')
+   .pipe(gulp.dest('Chrome/'))
+   .pipe(gulp.dest('Firefox/'));
+ });
+
+gulp.task('html', function(){
+  gulp.src('common/**/*.html')
+   .pipe(gulp.dest('Chrome/'))
+   .pipe(gulp.dest('Firefox/'));
+ })
+
 /**********************************************
  * Make Manifest.json for each browser
  */
@@ -56,13 +68,12 @@ gulp.task('manifest', function(){
  */
 
 gulp.task('watch', function() {
-  gulp.watch('common/**', ['images', 'manifest']);
+  gulp.watch('common/**', ['html', 'images', 'scripts','manifest']);
 });
-
 
 
 /**********************************************
  * Default and specific tasks
  */
 
-gulp.task('default', ['images', 'manifest']);
+gulp.task('default', ['html', 'images', 'scripts','manifest']);
