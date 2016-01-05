@@ -13,7 +13,7 @@ function handleError(err) {
  */
 
 gulp.task('images', function() {
-   gulp.src('common/images/*')
+   gulp.src('common/images/**')
    .pipe(gulp.dest('Chrome/'))
    .pipe(gulp.dest('Firefox/'));
 });
@@ -23,7 +23,7 @@ gulp.task('images', function() {
  */
 
 function parseJSONfile(filename) {
-  var jsonfile = __dirname + "/"+ filename ;
+  var jsonfile = __dirname + "/"+ filename;
   var obj = {};
 
   try {
@@ -37,8 +37,8 @@ function parseJSONfile(filename) {
 }
 
 function combine(obj1, obj2, dest) {
-  var finalObj = Object.assign({}, obj1, obj2);
-  var fileContents = JSON.stringify(finalObj).replace(/,/g, ",\n");
+  var finalObj = Object.assign(obj1, obj2);
+  var fileContents = JSON.stringify(finalObj, null, 2);
   fs.writeFileSync(__dirname + "/"+ dest + "/manifest.json", fileContents);
 }
 
