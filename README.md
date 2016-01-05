@@ -7,6 +7,7 @@ https://developer.chrome.com/extensions/devguide
 ### Firefox WebExtension documentation
 This is still not in their production browser yet, only available in their nightlies
 https://wiki.mozilla.org/WebExtensions
+https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Porting_from_Google_Chrome
 
 Firefox's WebExtensions mirrors Chrome's almost exactly. They both use the manifest.json with almost all the similar items. I've created 3 files in the common folder to handle and minor differences between the manifests.   
 
