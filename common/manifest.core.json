@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "My Web Extension",
+  "default_locale": "en",
+  
+  "icons": { 
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png" 
+  },
+  
+  "description": "Simple extension that runs a content script on a specific domain",
+  "version": "1.0",
+
+  "content_scripts": [
+      {
+        "matches": ["https://www.dubtrack.fm/*"],
+        "js": ["myscript.js"]
+      }
+  ],
+  
+  "permissions": [
+    "activeTab",
+    "https://www.dubtrack.fm/"
+  ]
+}
